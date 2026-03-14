@@ -27,10 +27,17 @@
 
 ```json
 
+{
+  "firstName": "Ana",
+  "lastName": "García",
+  "email": "ana.garcia@estudiante.com",
+  "birthDate": "2001-03-12",
+  "phone": "3004445566"
+}
 
 ```
 
-* **Código de Estado (Status Code):** `____`
+* **Código de Estado (Status Code):** `__201 OK __`
 
 ---
 
@@ -42,10 +49,19 @@
 
 ```json
 
-
+[
+    {
+        "firstName": "Ana",
+        "lastName": "García",
+        "email": "ana.garcia@estudiante.com",
+        "birthDate": "2001-03-12",
+        "id": 1,
+        "phone": "3004445566"
+    }
+]
 ```
 
-* **Código de Estado (Status Code):** `____`
+* **Código de Estado (Status Code):** `__200 OK__`
 
 ---
 
@@ -57,10 +73,17 @@
 
 ```json
 
-
+{
+    "firstName": "Ana",
+    "lastName": "García",
+    "email": "ana.garcia@estudiante.com",
+    "birthDate": "2001-03-12",
+    "id": 1,
+    "phone": "3004445566"
+}
 ```
 
-* **Código de Estado (Status Code):** `____`
+* **Código de Estado (Status Code):** `__200 OK__`
 
 ---
 
@@ -71,11 +94,18 @@
 * **Respuesta del Servidor (Completar):**
 
 ```json
-
+{
+  "id": 1,
+  "firstName": "Ana María",
+  "lastName": "García",
+  "email": "ana.garcia@estudiante.com",
+  "birthDate": "2001-03-12",
+  "phone": "3119998877"
+}
 
 ```
 
-* **Código de Estado (Status Code):** `____`
+* **Código de Estado (Status Code):** `__200 OK__`
 
 ---
 
@@ -99,11 +129,18 @@
 * **Respuesta del Servidor (Completar):**
 
 ```json
-
+{
+    "firstName": "Ana María",
+    "lastName": "García",
+    "email": "ana.garcia@estudiante.com",
+    "birthDate": "2001-03-12",
+    "id": 1,
+    "phone": "3119998877"
+}
 
 ```
 
-* **Código de Estado (Status Code):** `____`
+* **Código de Estado (Status Code):** `_200 OK___`
 
 ---
 
@@ -114,11 +151,11 @@
 * **Respuesta del Servidor (Completar):**
 
 ```json
-
+{}
 
 ```
 
-* **Código de Estado (Status Code):** `____`
+* **Código de Estado (Status Code):** `__404 Not Found__`
 
 ---
 
@@ -129,11 +166,11 @@
 * **Respuesta del Servidor (Completar):**
 
 ```json
-
+{}
 
 ```
 
-* **Código de Estado (Status Code):** `____`
+* **Código de Estado (Status Code):** `__204 No Content__`
 
 ---
 
@@ -142,23 +179,25 @@
 **Instrucciones:** Responda las siguientes preguntas basándose en su experiencia durante el laboratorio y el código del proyecto.
 
 1. **¿Cuál es la diferencia entre los códigos de estado 200 y 201? ¿En qué endpoints se obtuvieron cada uno?**
-* *Respuesta:*
+* *Respuesta:*El código 200 OK es una respuesta genérica que indica que la solicitud fue exitosa. El código 201 Created es más específico e indica que, además de ser exitosa, la solicitud resultó en la creación de un nuevo recurso.
+
 
 
 2. **En el escenario de error (punto 6), ¿qué información devuelve la API y por qué es importante para un desarrollador frontend recibir un código 404 en lugar de un código 500?**
-* *Respuesta:*
+* *Respuesta:* La API devuelve un objeto JSON con detalles del error (timestamp, status 404 y un mensaje como "Student not found").
+
 
 
 3. **¿Qué sucede en la base de datos PostgreSQL cuando se ejecuta con éxito la petición DELETE? (Explique brevemente en términos de persistencia).**
-* *Respuesta:*
+* *Respuesta:*Ocurre una eliminación física del registro. En términos de persistencia, esto significa que el dato deja de estar almacenado de forma permanente en el disco duro. Una vez borrado, cualquier intento de consulta posterior no encontrará el recurso porque ya no existe en el almacenamiento persistente.
 
 
 4. **Si intentara crear un estudiante con el mismo email que ya existe en la base de datos, ¿qué cree que sucedería y qué código de error sería el más adecuado para devolver?**
-* *Respuesta:*
+* *Respuesta:*El servidor lanzaría una excepción de violación de unicidad (si el campo email está configurado como UNIQUE). La operación de guardado fallaría para evitar datos duplicados.
 
 
 5. **¿Por qué utilizamos el método PUT para actualizar y no el método POST? ¿Cuál es la convención técnica detrás de esta decisión?**
-* *Respuesta:*
+* *Respuesta:*Se utiliza PUT porque es un método idempotente. Esto significa que si envías la misma petición de actualización varias veces, el resultado final siempre será el mismo.
 
 
 
